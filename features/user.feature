@@ -6,4 +6,11 @@ Feature: Handle storing, retrieving and deleting customer details # test/feature
     Then I should get a '200' response
     And the following user details are returned:
       | name        |
-      | Jason Borne |
+      | Jason Bourne | 
+
+  Scenario: Add a new user
+    Given the user "freddy" doesnt exist
+    When I store the costumer "freddy"
+    Then I should get a '201' response
+    And "freddy" is in the database
+
